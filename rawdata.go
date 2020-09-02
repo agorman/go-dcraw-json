@@ -19,8 +19,8 @@ type Camera struct {
 }
 
 type Size struct {
-	Width  int `json:"width"`
-	Height int `json:"height"`
+	Width  uint `json:"width"`
+	Height uint `json:"height"`
 }
 
 type GPS struct {
