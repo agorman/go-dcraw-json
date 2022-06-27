@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestParse(t *testing.T) {
+func TestGetImageData(t *testing.T) {
 	t.Parallel()
 
 	data, err := GetImageData(context.Background(), "./testdata/RAW_KODAK_DC50.KDC")
@@ -30,4 +30,16 @@ func TestParse(t *testing.T) {
 	assert.Equal(t, uint(512), data.FullSize.Height)
 
 	assert.Nil(t, data.GPS)
+
+	_, err = GetImageData(context.Background(), "./testdata/INVALID_FILE")
+	assert.NotNil(t, err)
+}
+
+func TestSetDCRawBinPath(t *testing.T) {
+	t.Parallel()
+
+	SetDCRawBinPath("/usr/bin/INVALID_BINARY")
+
+	_, err := GetImageData(context.Background(), "./testdata/RAW_KODAK_DC50.KDC")
+	assert.NotNil(t, err)
 }
