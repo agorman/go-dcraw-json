@@ -16,7 +16,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get -q -y install dcraw wget gcc
-          sudo wget https://github.com/akillmer/dcraw-json/blob/master/dcraw.c
+          sudo wget https://raw.githubusercontent.com/akillmer/dcraw-json/master/dcraw.c
           sudo gcc -o /usr/bin/dcraw-json -O4 dcraw.c -lm -DNODEPS
           go get -v
       - name: Tests
