@@ -1,4 +1,4 @@
-module github.com/agorman/go-dcraw-json
+module github.com/agorman/go-dcraw-json/v2
 
 go 1.16
 
